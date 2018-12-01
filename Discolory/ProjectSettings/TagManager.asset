@@ -4,8 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Switch
   - SwitchRiddleLight
+=======
+  - Checkpoint
+  - EnergySource
+  - Deathzone
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
@@ -16,6 +22,7 @@ TagManager:
   -
   -
   - PostProcessing
+<<<<<<< HEAD
   -
   -
   -
@@ -39,6 +46,31 @@ TagManager:
   -
   -
   -
+=======
+  - CamPlayerOne
+  - CamPlayerTwo
+  - 
+  - 
+  - 
+  - 
+  - Red
+  - Yellow
+  - Blue
+  - Orange
+  - Purple
+  - Green
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+>>>>>>> master
   m_SortingLayers:
   - name: Default
     uniqueID: 0
