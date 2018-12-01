@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour {
 
@@ -11,6 +10,6 @@ public class StartGame : MonoBehaviour {
         GameData.Instance.SaveSettings();
 
         // Load Scene with the Loading ID 1
-        SceneManager.LoadScene(1);
+        LevelTransition.Instance.FadeToScene();
     }
 }
