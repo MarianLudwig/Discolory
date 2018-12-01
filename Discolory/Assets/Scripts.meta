@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: b402843a726b1dc4598cb61b38f108cc
 =======
 <<<<<<< HEAD
@@ -8,9 +9,15 @@ guid: b99464c49bca41344abccb05a5f91592
 guid: a349b99bac910724eac7da542ae3f771
 >>>>>>> PlayerMovement
 >>>>>>> 66e6b4679d01ae463c8d07deadbe805ba38ded2d
+=======
+guid: a349b99bac910724eac7da542ae3f771
+=======
+guid: b402843a726b1dc4598cb61b38f108cc
+>>>>>>> MiniGames
+>>>>>>> dd5e406695cf73f5ff78d162e19ec9565dacbcf8
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:
