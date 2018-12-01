@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MirrorPlane : MonoBehaviour {
 
     public GameObject child;
+    public GameObject successText;
+
     private LineRenderer lr;
 
     private bool updateBeam = false;
@@ -28,6 +31,17 @@ public class MirrorPlane : MonoBehaviour {
 
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
+                if (hit.collider.tag == "Mirrors")
+                {
+                    hit.collider.SendMessage("activateLaser");
+                }
+
+                if(hit.collider.tag == "Goal")
+                {
+                    Debug.Log("Got it");
+                    successText.SetActive(true);
+                }
+
                 if (hit.collider)
                 {
                     lr.SetPosition(1, hit.point);

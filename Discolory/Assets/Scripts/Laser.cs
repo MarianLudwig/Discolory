@@ -5,9 +5,6 @@ using UnityEditor;
 
 public class Laser : MonoBehaviour {
 
-    public Transform originalObject;
-    public Transform reflectedObject;
-
     private LineRenderer lr;
 
 	// Use this for initialization
@@ -21,6 +18,7 @@ public class Laser : MonoBehaviour {
         RaycastHit hit;
 
         lr.SetPosition(0, transform.position);
+
 
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
