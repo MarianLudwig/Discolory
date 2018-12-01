@@ -26,8 +26,10 @@ public class PlayerMovement : MonoBehaviour
 	public float bodyRotSpeed;
 	public float headRotSpeed;
 
-	private float headTopAngle = -45f;
-	private float headLowAngle = 45f;
+	private float minAngle = 45f;
+	private float maxAngle = -45f;
+
+	private float cameraAngle;
 
 	// Use this for initialization
 	void Start()
@@ -52,12 +54,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 		if (Input.GetAxis(conSettings.rightVertical) != 0)
 		{
+			// Delete dis; will be done by animation
 			transform.GetChild(0).Rotate(Vector3.right, Input.GetAxis(conSettings.rightVertical) * headRotSpeed * Time.deltaTime);
-			//Clamp Headangle
-			
-			Transform cam = transform.GetChild(0);
-
-			
 		}
 		if (Input.GetButtonDown(conSettings.interactionButton))
 		{
