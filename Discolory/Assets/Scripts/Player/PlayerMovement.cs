@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool primaryColorActive; //primary color or yellow active?
 
 	private bool changingGem;
+	private bool isRightTriggerInUse;
 
 	private Vector3 spawnPos;
 	// Use this for initialization
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 	void Reset()
 	{
 		transform.position = spawnPos;
-		changingGem = false;
+		changingGem = isRightTriggerInUse = false;
 	}
 
 	// Update is called once per frame
@@ -118,17 +119,25 @@ public class PlayerMovement : MonoBehaviour
 
 			primaryColorActive = !primaryColorActive;
 		}
-		if (Input.GetButtonDown(conSettings.rightTrigger))
+		Debug.Log(Input.GetAxis(conSettings.rightTrigger));
+		if (Input.GetAxisRaw(conSettings.rightTrigger) == 1)
 		{
-			// Activate light beam		
-			staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
-			playerAnim.Cast(true);
+			//Debug.Log("Press right trigger");
+			if (isRightTriggerInUse == false)
+			{
+				// Activate light beam		
+				staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
+				playerAnim.Cast(true);
+				isRightTriggerInUse = true;
+			}
 		}
-		if (Input.GetButtonUp(conSettings.rightTrigger))
+		if (Input.GetAxisRaw(conSettings.rightTrigger) != 1)
 		{
+			//Debug.Log("Release right trigger");
 			// Activate light beam		
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
 			playerAnim.Cast(false);
+			isRightTriggerInUse = false;
 		}
 		#endregion
 	}
