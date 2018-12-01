@@ -7,6 +7,9 @@ TagManager:
   - Mirrors
   - Goal
   - Clif
+  - Checkpoint
+  - EnergySource
+  - Deathzone
   layers:
   - Default
   - TransparentFX
@@ -17,18 +20,18 @@ TagManager:
   - 
   - 
   - PostProcessing
+  - CamPlayerOne
+  - CamPlayerTwo
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Red
+  - Yellow
+  - Blue
+  - Orange
+  - Purple
+  - Green
   - 
   - 
   - 
