@@ -95,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
 
 		}
 
+		playerAnim.MoveAnim(Input.GetAxis(conSettings.leftVertical), Input.GetAxis(conSettings.leftHorizontal), -Input.GetAxis(conSettings.rightVertical), headRotSpeed*Time.deltaTime);
+
 		// Return if animation currently played
 		if (changingGem)
 			return;
