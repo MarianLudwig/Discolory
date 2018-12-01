@@ -8,7 +8,7 @@ public class StaffBehaviour : MonoBehaviour
 	public float energyConsumption = 3f;
 
 	private bool lightBeamActive;
-	private Transform muzzle;
+	public Transform muzzle;
 	private LineRenderer lightBeam;
 	// Layer 9-14; R - Y(G) - B - O - P - G, only RYB usable for lightbeam, purple objects can be hit by both
 	private int validLayermask;
@@ -19,10 +19,9 @@ public class StaffBehaviour : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		muzzle = transform.GetChild(0);
 		lightBeam = muzzle.GetComponent<LineRenderer>();
 		lightBeam.enabled = false;
-		validLayermask = LayerMask.GetMask("default"); // Yellow, standard
+		validLayermask = LayerMask.GetMask("Default"); // Yellow, standard
 	}
 
 	// Update is called once per frame
@@ -41,7 +40,6 @@ public class StaffBehaviour : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(muzzle.transform.position, muzzle.transform.forward, out hit, 100f, validLayermask))
 			{
-				Debug.Log("hit");
 				if (hit.collider)
 				{
 					lightBeam.SetPosition(1, hit.point);
@@ -51,7 +49,6 @@ public class StaffBehaviour : MonoBehaviour
 			else
 			{
 				lightBeam.SetPosition(1, muzzle.transform.position + muzzle.transform.forward * 1000f);
-				Debug.Log("no hit");
 			}
 
 			lightPower -= Time.deltaTime * energyConsumption;
@@ -70,6 +67,11 @@ public class StaffBehaviour : MonoBehaviour
 	{
 		lightBeamActive = false;
 		lightBeam.enabled = false;
+	}
+
+	public void ReloadNRG()
+	{
+		lightPower = 100f;
 	}
 
 	public void ChangeGem(Color changeToColor)

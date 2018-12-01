@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 	// for managing lightbeam stuff
 	public GameObject staff;
 
+	public PlayerAnimation playerAnim;
+
 	private float minAngle = 45f;
 	private float maxAngle = -45f;
 
@@ -100,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetButtonDown(conSettings.changeButton))
 		{
 			Debug.Log("Changing gem");
+			playerAnim.Cast(false);
+			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
 			//changingGem = true;
 			if (primaryColorActive)
 			{
@@ -116,12 +120,50 @@ public class PlayerMovement : MonoBehaviour
 		{
 			// Activate light beam		
 			staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
+			playerAnim.Cast(true);
 		}
 		if (Input.GetButtonUp(conSettings.rightTrigger))
 		{
 			// Activate light beam		
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
+			playerAnim.Cast(false);
 		}
 		#endregion
+	}
+
+	void Die()
+	{
+		transform.position = spawnPos;
+	}
+
+	// Setter
+	public void SetChangingGem(bool isChanging)
+	{
+		changingGem = isChanging;
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Checkpoint")
+		{
+			spawnPos = other.transform.position;
+			Destroy(other.gameObject);
+		}
+		if (other.tag == "Deathzone")
+		{
+			Die();
+		}
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.tag == "EnergySource")
+		{
+			if (Input.GetButtonDown(conSettings.interactionButton))
+			{
+				// Reloading energy, TODO: Sound, PSystem, Anim
+				staff.GetComponent<StaffBehaviour>().ReloadNRG();
+			}
+		}
 	}
 }

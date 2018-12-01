@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Checkpoint
+  - EnergySource
+  - Deathzone
   layers:
   - Default
   - TransparentFX
@@ -26,12 +29,6 @@ TagManager:
   - Orange
   - Purple
   - Green
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
