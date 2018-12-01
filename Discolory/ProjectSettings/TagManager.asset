@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mirrors
   - Goal
+  - Clif
   layers:
   - Default
   - TransparentFX

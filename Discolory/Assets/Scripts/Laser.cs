@@ -7,6 +7,8 @@ public class Laser : MonoBehaviour {
 
     private LineRenderer lr;
 
+    public GameObject successText;
+
 	// Use this for initialization
 	void Start () {
         lr = GetComponent<LineRenderer>();
@@ -25,6 +27,11 @@ public class Laser : MonoBehaviour {
             if (hit.collider.tag == "Mirrors")
             {
                 hit.collider.SendMessage("activateLaser");
+            }
+
+            if(hit.collider.tag == "Goal")
+            {
+                successText.SetActive(true);
             }
 
             if (hit.collider)

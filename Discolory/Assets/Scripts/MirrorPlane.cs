@@ -38,7 +38,6 @@ public class MirrorPlane : MonoBehaviour {
 
                 if(hit.collider.tag == "Goal")
                 {
-                    Debug.Log("Got it");
                     successText.SetActive(true);
                 }
 
