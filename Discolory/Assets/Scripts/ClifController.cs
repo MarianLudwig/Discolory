@@ -4,44 +4,22 @@ using UnityEngine;
 
 public class ClifController : MonoBehaviour {
 
-    public GameObject[] clifs;
+    public GameObject[] stones = new GameObject[4];
+    public Vector3[] initStonePosition = new Vector3[4];
 
-    int count = 0;
-
-    void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
+        for(int i = 0; i < stones.Length; i++)
         {
-            Debug.Log("Mouse is down");
+            initStonePosition[i] = stones[i].transform.position;
+        }
+    }
 
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-            if (hit)
-            {
-                Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-                if (hitInfo.transform.gameObject.tag == "Clif")
-                {
-                    for (int i = 0; i < clifs.Length; i++)
-                    {
-                        clifs[i].SendMessage("deactivateClif");
-                    }
-                    hitInfo.transform.SendMessage("activateClif");
-                    Debug.Log("It's working!");
-                }
-                else
-                {
-                    for(int i = 0; i < clifs.Length; i++)
-                    {
-                        clifs[i].SendMessage("deactivateClif");
-                    }
-                    Debug.Log("nopz");
-                }
-            }
-            else
-            {
-                Debug.Log("No hit");
-            }
-            Debug.Log("Mouse is down");
+    public void resetStonePositions()
+    {
+        for(int i = 0; i < stones.Length; i++)
+        {
+            stones[i].SendMessage("resetPosition", initStonePosition[i]);
         }
     }
 }
