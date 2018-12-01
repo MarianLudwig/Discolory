@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: am_wiz_updown
+  m_Mask: 01000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/root
+    m_Weight: 0
+  - m_Path: Armature/root/Leg_L
+    m_Weight: 0
+  - m_Path: Armature/root/Leg_L/LowerLeg_L
+    m_Weight: 0
+  - m_Path: Armature/root/Leg_L/LowerLeg_L/Foot_L
+    m_Weight: 0
+  - m_Path: Armature/root/Leg_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/Leg_R_001/LowerLeg_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/Leg_R_001/LowerLeg_R_001/Foot_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody
+    m_Weight: 1
+  - m_Path: Armature/root/UpperBody/Head
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_L
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_L/Arm_L
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_L/Arm_L/ForeArm_L
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_L/Arm_L/ForeArm_L/Hand_L
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_L/Arm_L/ForeArm_L/Hand_L/Fingers_L
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_L/Arm_L/ForeArm_L/Thumb_L
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_R_001/Arm_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_R_001/Arm_R_001/ForeArm_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_R_001/Arm_R_001/ForeArm_R_001/Hand_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_R_001/Arm_R_001/ForeArm_R_001/Hand_R_001/Fingers_R_001
+    m_Weight: 0
+  - m_Path: Armature/root/UpperBody/Shoulder_R_001/Arm_R_001/ForeArm_R_001/Thumb_R_001
+    m_Weight: 0
+  - m_Path: Body
+    m_Weight: 0
