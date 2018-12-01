@@ -65,11 +65,8 @@ public class MirrorPlane : MonoBehaviour {
     {
         var angles = transform.rotation.eulerAngles;
         Debug.Log("rotate Right: " + angles.y);
-        if (angles.y < 45+180 || angles.y > 295-180)
-        {
-            angles.y += 15;
-            transform.rotation = Quaternion.Euler(angles);
-        }
+        angles.y += 1;
+        transform.rotation = Quaternion.Euler(angles);
 
     }
 

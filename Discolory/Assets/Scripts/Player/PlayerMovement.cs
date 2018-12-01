@@ -176,5 +176,10 @@ public class PlayerMovement : MonoBehaviour
 				staff.GetComponent<StaffBehaviour>().ReloadNRG();
 			}
 		}
+
+        if(other.tag == "Button")
+        {
+            other.SendMessage("triggerEvent");
+        }
 	}
 }

@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - EnergySource
   - Deathzone
+  - Button
   layers:
   - Default
   - TransparentFX
