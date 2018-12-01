@@ -6,6 +6,9 @@ public class QuitGame : MonoBehaviour {
 
     public void Quit()
     {
+        // save settings
+        GameData.Instance.SaveSettings();
+
         //If we are running in a standalone build of the game
 #if UNITY_STANDALONE
         //Quit the application
