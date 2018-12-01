@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetAxis(conSettings.rightVertical) != 0)
 		{
 			// Delete dis; will be done by animation
-			transform.GetChild(0).Rotate(Vector3.right, Input.GetAxis(conSettings.rightVertical) * headRotSpeed * Time.deltaTime);
+			//transform.GetChild(0).Rotate(Vector3.right, Input.GetAxis(conSettings.rightVertical) * headRotSpeed * Time.deltaTime);
 		}
 		if (Input.GetButtonDown(conSettings.interactionButton))
 		{
