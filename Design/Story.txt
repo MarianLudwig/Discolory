@@ -1,0 +1,33 @@
+Setting:
+	- Fantasy world
+	- everything exists as long as the world has got energy
+
+
+Characters:
+	- 2 wizards: (maybe brothers) both students of the elder wizard, mastered the spell of casting the world's energy as color beams
+	- elder wizard (not seen): last of the ancient wizards who can control the world's energy, died but so powerful as he was he can still contact his students
+	- evil entity: eats energy of the world, which makes the world disappear
+
+
+Story:
+The last 2 wizards go through a dungeon to seek the one light stone, that destroys the evil and regains the earth's energy. 
+Nearly finding it, the evil - who is about 4 minutes away - sees what the wizards are planning and sets off to hunt those wizards.
+Being only minutes away from death, the wizards must walk through the rest of the dungeon and help each other to overcome the obstacles caused by the missing energy.
+
+
+Intro:
+The players find themselves in a dungeon room filled with colored stones.
+They are seperated by a big fence. In front of each one a door.
+With their magic they can shine these colored stones.
+After aproximatly 15 seconds, the elder wizard speaks in their head (UI + voice over maybe): "The light stone is nigh! Make haste! The evil is coming!"
+After 10 seconds, sound of earth shaking, the evil screams: "How dare you fighting me!? I'll turn you to darkness!"
+Timer starts. Door opens (automatically or somehow)
+(Open door to skip intro)
+
+
+Tutorial:
+As messages from the elder wizard (UI only).
+How to:
+	- shine
+	- switch
+	- interact
