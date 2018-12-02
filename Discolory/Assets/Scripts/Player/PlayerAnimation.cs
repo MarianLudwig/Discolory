@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
+    [SerializeField] PlayerMovement move;
     [SerializeField] Animator anim;
     [SerializeField] float animTime;
 
@@ -47,7 +48,7 @@ public class PlayerAnimation : MonoBehaviour {
         }
         else
         {
-            // TODO: Set changing gem to false
+            move.SetChangingGem(false);
         }
 
         // Debugging
