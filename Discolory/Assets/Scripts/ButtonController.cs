@@ -56,6 +56,7 @@ public class ButtonController : MonoBehaviour {
 
         if(interactiveObject.tag == "Mirrors")
         {
+            interactiveObject.SendMessage("updateButtonName", this.gameObject.name);
             interactiveObject.SendMessage("rotateRight");
         }
     }
