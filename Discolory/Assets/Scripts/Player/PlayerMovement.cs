@@ -159,7 +159,6 @@ public class PlayerMovement : MonoBehaviour
 		if (other.tag == "Checkpoint")
 		{
 			spawnPos = other.transform.position;
-			Destroy(other.gameObject);
 		}
 		if (other.tag == "Deathzone")
 		{
