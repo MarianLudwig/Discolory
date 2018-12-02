@@ -19,12 +19,12 @@ public class Laser : MonoBehaviour {
     {
         RaycastHit hit;
 
-        lr.SetPosition(0, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z));
+        lr.SetPosition(0, transform.position);
 
 
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-            lr.SetPosition(1, hit.point);
+            lr.SetPosition(1, new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z));
 
             if (hit.collider.tag == "Mirrors")
             {
