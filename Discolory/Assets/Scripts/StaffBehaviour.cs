@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StaffBehaviour : MonoBehaviour
 {
 
 	public float energyConsumption = 3f;
+
+	public Slider powerSlider;
 
 	private bool lightBeamActive, reflected;
 	public Transform muzzle;
@@ -103,10 +106,14 @@ public class StaffBehaviour : MonoBehaviour
 
 
 			lightPower -= Time.deltaTime * energyConsumption;
+			UpdateSlider();
 		}
 	}
 
-
+	void UpdateSlider()
+	{
+		powerSlider.value = lightPower;
+	}
 
 	//void ContinueLightBeam(Vector3 pos, Vector3 dir, int vertexIndex)
 	//{
@@ -164,6 +171,7 @@ public class StaffBehaviour : MonoBehaviour
 	public void ReloadNRG()
 	{
 		lightPower = 100f;
+		UpdateSlider();
 	}
 
 	public void ChangeGem(Color changeToColor)
