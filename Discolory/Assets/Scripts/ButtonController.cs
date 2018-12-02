@@ -63,7 +63,7 @@ public class ButtonController : MonoBehaviour {
 
     public void vibrateController(float intensiveValue)
     {
-        GamePad.SetVibration(playerIndex, intensiveValue, intensiveValue);
+        //GamePad.SetVibration(playerIndex, intensiveValue, intensiveValue);
     }
 
     private void OnTriggerExit(Collider other)

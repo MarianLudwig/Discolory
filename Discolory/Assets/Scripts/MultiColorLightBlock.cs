@@ -21,43 +21,43 @@ public class MultiColorLightBlock : MonoBehaviour
 	private float lightTime = 25f;
 	private float maxLightTime = 25f;
 
-    private LightBlockDissolve childBlock;
+	private LightBlockDissolve childBlock;
 
 
 
-    void Start()
-    {
-        childBlock = transform.GetChild(0).GetComponent<LightBlockDissolve>();
-        Color col = new Color();
-        string layer = LayerMask.LayerToName(gameObject.layer);
-        print(layer);
-        switch (layer)
-        {
-            case "Red":
-                col = Color.red;
-                break;
-            case "Yellow":
-                col = Color.yellow;
-                break;
-            case "Blue":
-                col = Color.blue;
-                break;
-            case "Orange":
-                col = new Color(1.000f, 0.522f, 0.106f);
-                break;
-            case "Purple":
-                col = new Color(0.694f, 0.051f, 0.788f);
-                break;
-            case "Green":
-                col = Color.green;
-                break;
-            default:
-                col = Color.black;
-                break;
-        }
-        childBlock.SetColor(col);
+	void Start()
+	{
+		childBlock = transform.GetChild(0).GetComponent<LightBlockDissolve>();
+		Color col = new Color();
+		string layer = LayerMask.LayerToName(gameObject.layer);
+		print(layer);
+		switch (layer)
+		{
+			case "Red":
+				col = Color.red;
+				break;
+			case "Yellow":
+				col = Color.yellow;
+				break;
+			case "Blue":
+				col = Color.blue;
+				break;
+			case "Orange":
+				col = new Color(1.000f, 0.522f, 0.106f);
+				break;
+			case "Purple":
+				col = new Color(0.694f, 0.051f, 0.788f);
+				break;
+			case "Green":
+				col = Color.green;
+				break;
+			default:
+				col = Color.black;
+				break;
+		}
+		childBlock.SetColor(col);
 
-        AssignColor();
+		AssignColor();
 		DeactivateChildBlock();
 		waitingForSecondColor = true;
 	}
@@ -120,7 +120,7 @@ public class MultiColorLightBlock : MonoBehaviour
 	public void ActivateLightblock(float energyToLoad, Color incomingColor)
 	{
 		if (waitingForSecondColor)
-			childBlock.Dissolve(true);
+			childBlock.gameObject.SetActive(true);
 		ChargeMultiColor(energyToLoad, incomingColor);
 	}
 
@@ -136,13 +136,11 @@ public class MultiColorLightBlock : MonoBehaviour
 	void ActivateChildBlock()
 	{
 		childBlock.Dissolve(true);
-		childBlock.GetComponent<Renderer>().enabled = childBlock.GetComponent<Collider>().enabled = true;
 	}
 
 	void DeactivateChildBlock()
 	{
 		childBlock.Dissolve(false);
-		childBlock.GetComponent<Renderer>().enabled = childBlock.GetComponent<Collider>().enabled = false;
 	}
 
 	void AssignColor()
