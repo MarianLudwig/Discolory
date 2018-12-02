@@ -106,10 +106,14 @@ public class StaffBehaviour : MonoBehaviour
 
 
 			lightPower -= Time.deltaTime * energyConsumption;
-			powerSlider.value = lightPower;
+			UpdateSlider();
 		}
 	}
 
+	public void UpdateSlider()
+	{
+		powerSlider.value = lightPower;
+	}
 
 
 	//void ContinueLightBeam(Vector3 pos, Vector3 dir, int vertexIndex)
@@ -168,6 +172,7 @@ public class StaffBehaviour : MonoBehaviour
 	public void ReloadNRG()
 	{
 		lightPower = 100f;
+		powerSlider.value = lightPower;
 	}
 
 	public void ChangeGem(Color changeToColor)
