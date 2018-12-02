@@ -8,6 +8,9 @@ public class Laser : MonoBehaviour {
 
     public GameObject successText;
 
+	public GameObject door;
+
+
 	// Use this for initialization
 	void Start () {
         lr = GetComponent<LineRenderer>();
@@ -32,7 +35,8 @@ public class Laser : MonoBehaviour {
 
             if(hit.collider.tag == "Goal")
             {
-                successText.SetActive(true);
+				door.SendMessage("openDoor");
+				
             }
 
             /*
