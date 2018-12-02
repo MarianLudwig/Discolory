@@ -9,18 +9,22 @@ public class StoneMovement : MonoBehaviour {
     private float finalSpeed;
     private Vector3 dirNorm;
 
+    /*
     [System.Serializable]
     public class Boundary
     {
         public float xMin, xMax, zMin, zMax;
-    }
+    }*/
 
     public float speed;
-    public Boundary boundary;
+    //public Boundary boundary;
     public Vector3 goalPos = new Vector3(0.0f, -1.0f, 0.0f);
+
+    private GameObject test;
 
     // Use this for initialization
     void Start () {
+        goalPos += this.transform.parent.parent.gameObject.transform.position;
         dirNorm = (goalPos - transform.position).normalized;
         finalSpeed = speed;
 	}
