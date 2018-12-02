@@ -9,6 +9,7 @@ public class MirrorPlane : MonoBehaviour {
     public GameObject successText;
     public GameObject[] door;
 
+    private string buttonName;
     private LineRenderer lr;
 
     private bool updateBeam = false;
@@ -31,7 +32,7 @@ public class MirrorPlane : MonoBehaviour {
             {
                 if (hit.collider.tag == "Mirrors")
                 {
-                    GameObject.Find("VisualButton (4)").GetComponent("ButtonController").SendMessage("vibrateController", 1.0f);
+                    GameObject.Find(buttonName).GetComponent("ButtonController").SendMessage("vibrateController", 1.0f);
                     hit.collider.SendMessage("activateLaser");
                 }
 
@@ -52,6 +53,11 @@ public class MirrorPlane : MonoBehaviour {
         }
         
 	}
+
+    public void updateButtonName(string name)
+    {
+        buttonName = name;
+    }
 
     public void activateLaser()
     {
