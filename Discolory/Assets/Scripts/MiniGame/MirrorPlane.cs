@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class MirrorPlane : MonoBehaviour {
 
     public GameObject child;
-    public GameObject[] door;
+    public GameObject successText;
 
-    private string buttonName;
     private LineRenderer lr;
 
     private bool updateBeam = false;
@@ -20,25 +19,27 @@ public class MirrorPlane : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(updateBeam == true)
+        {
+            lr.enabled = false;
+        }
         if (lr.enabled)
         {
             RaycastHit hit;
 
-            lr.SetPosition(0, this.transform.position + transform.up*0.5f);
+            lr.SetPosition(0, this.transform.position);
 
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
                 if (hit.collider.tag == "Mirrors")
                 {
+                    GameObject.Find("VisualButton (4)").GetComponent("ButtonController").SendMessage("vibrateController", 1.0f);
                     hit.collider.SendMessage("activateLaser");
-                    //GameObject.Find(buttonName).GetComponent("ButtonController").SendMessage("vibrateController", 1.0f);
                 }
 
                 if(hit.collider.tag == "Goal")
                 {
-                    door[0].SendMessage("openDoor");
-                    door[1].SendMessage("openDoor");
+                    successText.SetActive(true);
                 }
 
                 if (hit.collider)
@@ -46,16 +47,11 @@ public class MirrorPlane : MonoBehaviour {
                     lr.SetPosition(1, hit.point);
                 }
             }
-            else lr.SetPosition(1, transform.up * 0.5f + transform.forward * 5000);
+            else lr.SetPosition(1, transform.forward * 5000);
             updateBeam = true;
         }
         
 	}
-
-    public void updateButtonName(string name)
-    {
-        buttonName = name;
-    }
 
     public void activateLaser()
     {
@@ -69,7 +65,7 @@ public class MirrorPlane : MonoBehaviour {
     public void rotateRight()
     {
         var angles = transform.rotation.eulerAngles;
-        angles.y += 0.3f;
+        angles.y += 0.5f;
         transform.rotation = Quaternion.Euler(angles);
 
     }
