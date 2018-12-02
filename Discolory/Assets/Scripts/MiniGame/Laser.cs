@@ -24,6 +24,8 @@ public class Laser : MonoBehaviour {
 
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
+            lr.SetPosition(1, hit.point);
+
             if (hit.collider.tag == "Mirrors")
             {
                 hit.collider.SendMessage("activateLaser");
@@ -34,12 +36,13 @@ public class Laser : MonoBehaviour {
                 successText.SetActive(true);
             }
 
+            /*
             if (hit.collider)
             {
                 lr.SetPosition(1, hit.point);
-            }
+            }*/
         }
-        else lr.SetPosition(1, transform.forward * 5000);
+        //else lr.SetPosition(1, transform.forward * 5000);
     }
 
     public int maxReflectionCount = 5;

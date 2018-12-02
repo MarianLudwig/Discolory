@@ -33,6 +33,7 @@ public class MirrorPlane : MonoBehaviour {
             {
                 if (hit.collider.tag == "Mirrors")
                 {
+                    GameObject.Find("VisualButton (4)").GetComponent("ButtonController").SendMessage("vibrateController", 1.0f);
                     hit.collider.SendMessage("activateLaser");
                 }
 
