@@ -121,24 +121,21 @@ public class PlayerMovement : MonoBehaviour
 			primaryColorActive = !primaryColorActive;
 		}
 
-		if (Input.GetAxisRaw(conSettings.rightTrigger) == 1)
+		if (Input.GetButtonDown(conSettings.rightTrigger))
 		{
 			//Debug.Log("Press right trigger");
-			if (!isRightTriggerInUse)
-			{
-				// Activate light beam		
-				staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
-				playerAnim.Cast(true);
-				isRightTriggerInUse = true;
-			}
+
+			// Activate light beam		
+			staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
+			playerAnim.Cast(true);
+
 		}
-		if (Input.GetAxisRaw(conSettings.rightTrigger) != 1)
+		if (Input.GetButtonUp(conSettings.rightTrigger))
 		{
 			//Debug.Log("Release right trigger");
 			// Activate light beam		
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
 			playerAnim.Cast(false);
-			isRightTriggerInUse = false;
 		}
 		#endregion
 	}
