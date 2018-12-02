@@ -8,9 +8,6 @@ public class Laser : MonoBehaviour {
 
     public GameObject successText;
 
-	public GameObject door;
-
-
 	// Use this for initialization
 	void Start () {
         lr = GetComponent<LineRenderer>();
@@ -21,12 +18,12 @@ public class Laser : MonoBehaviour {
     {
         RaycastHit hit;
 
-        lr.SetPosition(0, transform.position + transform.up);
+        lr.SetPosition(0, transform.position);
 
 
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-            lr.SetPosition(1, new Vector3(hit.point.x, hit.point.y, hit.point.z));
+            lr.SetPosition(1, hit.point);
 
             if (hit.collider.tag == "Mirrors")
             {
@@ -35,8 +32,7 @@ public class Laser : MonoBehaviour {
 
             if(hit.collider.tag == "Goal")
             {
-				door.SendMessage("openDoor");
-				
+                successText.SetActive(true);
             }
 
             /*

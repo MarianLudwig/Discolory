@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StaffBehaviour : MonoBehaviour
 {
@@ -20,8 +19,6 @@ public class StaffBehaviour : MonoBehaviour
 
 	// How long/much can the lightBeam be used, decreases in Update while lightBeamActive
 	private float lightPower = 100f;
-
-	public Slider powerSlider;
 
 	// Use this for initialization
 	void Awake()
@@ -106,7 +103,6 @@ public class StaffBehaviour : MonoBehaviour
 
 
 			lightPower -= Time.deltaTime * energyConsumption;
-			powerSlider.value = lightPower;
 		}
 	}
 

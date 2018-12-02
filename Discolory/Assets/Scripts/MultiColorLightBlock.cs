@@ -18,7 +18,7 @@ public class MultiColorLightBlock : MonoBehaviour
 
 	public float disappearingSpeed = 1.5f;
 
-	private float lightTime = 25f;
+	private float lightTime = 1f;
 	private float maxLightTime = 25f;
 
     private LightBlockDissolve childBlock;
@@ -128,7 +128,7 @@ public class MultiColorLightBlock : MonoBehaviour
 	{
 		colorOneHit = colorTwoHit = false;
 		waitingForSecondColor = true;
-		lightTime = 25f;
+		lightTime = 1f;
 		DeactivateChildBlock();
 		StopAllCoroutines();
 	}
