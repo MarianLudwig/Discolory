@@ -3,29 +3,31 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mirrors
+  - Goal
+  - Clif
+  - Checkpoint
+  - EnergySource
+  - Deathzone
+  - Button
+  - SingleColorLightBlock
+  - MultiColorLightBlock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
   - Water
-  - UI
-  - 
-  - 
+  - UI 
   - PostProcessing
   - CamPlayerOne
   - CamPlayerTwo
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Red
+  - Yellow
+  - Blue
+  - Orange
+  - Purple
+  - Green
   - 
   - 
   - 
