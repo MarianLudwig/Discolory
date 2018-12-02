@@ -18,6 +18,7 @@ public class Pipe : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log("TRIGGERED");
         if (other.tag == "SwitchRiddleLight")
             if(!laserOut.activeSelf)
                 laserOut.SetActive(true);

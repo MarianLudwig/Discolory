@@ -9,10 +9,10 @@ public class InteractScript : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.tag == "Switch")
+        if (other.tag == "Player")
         {
             if(Input.GetButtonDown(conSettings.interactionButton))
-                other.gameObject.transform.Rotate(new Vector3(0, 1, 0), 90);
+                gameObject.transform.Rotate(new Vector3(0, 1, 0), 90);
         }
     }
 }
