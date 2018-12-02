@@ -22,6 +22,7 @@ public class LightBlockDissolve : MonoBehaviour
 
     public void SetColor(Color col)
     {
+        mat = GetComponent<Renderer>().material;
         startColor = col;
         mat.SetColor("_EmissionColor", col);
         toDissolve = 1;
