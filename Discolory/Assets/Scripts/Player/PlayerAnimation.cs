@@ -30,7 +30,7 @@ public class PlayerAnimation : MonoBehaviour {
         float currentWeightCast = anim.GetLayerWeight(2);
         if (Mathf.Abs(currentWeightCast - toWeightCast) > .01f)
         {
-            print("here");
+
             currentWeightCast = Mathf.Lerp(currentWeightCast, toWeightCast, animTime * Time.deltaTime);
             anim.SetLayerWeight(2, currentWeightCast);
         }
