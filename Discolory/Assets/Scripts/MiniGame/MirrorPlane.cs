@@ -7,6 +7,7 @@ public class MirrorPlane : MonoBehaviour {
 
     public GameObject child;
     public GameObject successText;
+    public GameObject[] door;
 
     private LineRenderer lr;
 
@@ -19,10 +20,7 @@ public class MirrorPlane : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(updateBeam == true)
-        {
-            lr.enabled = false;
-        }
+
         if (lr.enabled)
         {
             RaycastHit hit;
@@ -39,6 +37,8 @@ public class MirrorPlane : MonoBehaviour {
 
                 if(hit.collider.tag == "Goal")
                 {
+                    door[0].SendMessage("openDoor");
+                    door[1].SendMessage("openDoor");
                     successText.SetActive(true);
                 }
 
@@ -65,7 +65,7 @@ public class MirrorPlane : MonoBehaviour {
     public void rotateRight()
     {
         var angles = transform.rotation.eulerAngles;
-        angles.y += 0.5f;
+        angles.y += 0.1f;
         transform.rotation = Quaternion.Euler(angles);
 
     }
