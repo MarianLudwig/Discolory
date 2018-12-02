@@ -7,7 +7,7 @@ public class SingleColorLightBlock : MonoBehaviour
 {
 	public float disappearingSpeed = 1.5f;
 
-	private float lightTime = 1f;
+	private float lightTime = 25f;
 	private float maxLightTime = 25f;
 
 	private GameObject childBlock;
@@ -38,7 +38,7 @@ public class SingleColorLightBlock : MonoBehaviour
 	public void DeactivateLightblock()
 	{
 		childBlock.SetActive(false);
-		lightTime = 1f;
+		lightTime = 25f;
 	}
 
 	void ActivateChildBlock()

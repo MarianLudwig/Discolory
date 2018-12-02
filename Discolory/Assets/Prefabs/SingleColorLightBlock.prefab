@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4787792095650468}
   - component: {fileID: 65119566797888886}
   - component: {fileID: 114847906461627100}
-  m_Layer: 17
+  m_Layer: 10
   m_Name: SingleColorLightBlock
-  m_TagString: Lightblock
+  m_TagString: SingleColorLightBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,9 +65,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1797667739653192}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.87451416, z: -0, w: 0.48499998}
+  m_LocalPosition: {x: 9.52, y: 2.284837, z: -5.8}
+  m_LocalScale: {x: 6.06, y: 6.3, z: 1}
   m_Children:
   - {fileID: 4206185160701630}
   m_Father: {fileID: 0}

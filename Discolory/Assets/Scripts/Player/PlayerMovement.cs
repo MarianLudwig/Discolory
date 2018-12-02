@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		spawnPos = transform.position;
 		//start with primaryColor
-		primaryColorActive = true;  
+		primaryColorActive = true;
 		if (primaryColor == PrimaryColors.Red)
 			primColor = Color.red;
 		else
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
 		}
 
-		playerAnim.MoveAnim(Input.GetAxis(conSettings.leftVertical), Input.GetAxis(conSettings.leftHorizontal), -Input.GetAxis(conSettings.rightVertical), headRotSpeed*Time.deltaTime);
+		playerAnim.MoveAnim(Input.GetAxis(conSettings.leftVertical), Input.GetAxis(conSettings.leftHorizontal), -Input.GetAxis(conSettings.rightVertical), headRotSpeed * Time.deltaTime);
 
 		// Return if animation currently played
 		if (changingGem)
@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
 			playerAnim.Cast(false);
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
 			changingGem = true;
-            playerAnim.Switch();
+			playerAnim.Switch();
 			if (primaryColorActive)
 			{
 				staff.GetComponent<StaffBehaviour>().ChangeGem(Color.yellow);
@@ -121,24 +121,21 @@ public class PlayerMovement : MonoBehaviour
 			primaryColorActive = !primaryColorActive;
 		}
 
-		if (Input.GetAxisRaw(conSettings.rightTrigger) == 1)
+		if (Input.GetButtonDown(conSettings.rightTrigger))
 		{
 			//Debug.Log("Press right trigger");
-			if (isRightTriggerInUse == false)
-			{
-				// Activate light beam		
-				staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
-				playerAnim.Cast(true);
-				isRightTriggerInUse = true;
-			}
+
+			// Activate light beam		
+			staff.GetComponent<StaffBehaviour>().ActivateLightBeam();
+			playerAnim.Cast(true);
+
 		}
-		if (Input.GetAxisRaw(conSettings.rightTrigger) != 1)
+		if (Input.GetButtonUp(conSettings.rightTrigger))
 		{
 			//Debug.Log("Release right trigger");
 			// Activate light beam		
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
 			playerAnim.Cast(false);
-			isRightTriggerInUse = false;
 		}
 		#endregion
 	}
@@ -177,9 +174,9 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-        if(other.tag == "Button")
-        {
-            other.SendMessage("triggerEvent");
-        }
+		if (other.tag == "Button")
+		{
+			other.SendMessage("triggerEvent");
+		}
 	}
 }

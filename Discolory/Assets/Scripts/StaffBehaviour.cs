@@ -25,7 +25,6 @@ public class StaffBehaviour : MonoBehaviour
 	{
 		lightBeam = muzzle.GetComponent<LineRenderer>();
 		lightBeam.enabled = false;
-		validLayermask = LayerMask.GetMask("Default"); // Yellow, standard
 	}
 
 	void Start()
@@ -57,6 +56,7 @@ public class StaffBehaviour : MonoBehaviour
 				if (hit.collider.tag == "SingleColorLightBlock")
 				{
 					hit.transform.GetComponent<SingleColorLightBlock>().ActivateLightblock(energyConsumption);
+					Debug.Log("Load" + energyConsumption);
 				}
 				else if (hit.collider.tag == "MultiColorLightBlock")
 				{
