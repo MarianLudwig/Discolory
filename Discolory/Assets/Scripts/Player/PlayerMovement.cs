@@ -107,7 +107,8 @@ public class PlayerMovement : MonoBehaviour
 
 			playerAnim.Cast(false);
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
-			//changingGem = true;
+			changingGem = true;
+            playerAnim.Switch();
 			if (primaryColorActive)
 			{
 				staff.GetComponent<StaffBehaviour>().ChangeGem(Color.yellow);
