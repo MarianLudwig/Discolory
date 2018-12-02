@@ -18,6 +18,11 @@ public class ButtonController : MonoBehaviour {
 
     public void triggerEvent()
     {
+        if(interactiveObject.name == "Reset")
+        {
+            interactiveObject.SendMessage("resetStonePositions");
+        }
+
         if (interactiveObject.tag == "Clif")
         {
             interactiveObject.SendMessage("moveStone");

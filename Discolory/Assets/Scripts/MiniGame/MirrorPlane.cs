@@ -64,8 +64,7 @@ public class MirrorPlane : MonoBehaviour {
     public void rotateRight()
     {
         var angles = transform.rotation.eulerAngles;
-        Debug.Log("rotate Right: " + angles.y);
-        angles.y += 1;
+        angles.y += 0.5f;
         transform.rotation = Quaternion.Euler(angles);
 
     }
@@ -73,7 +72,6 @@ public class MirrorPlane : MonoBehaviour {
     public void rotateLeft()
     {
         var angles = transform.rotation.eulerAngles;
-        Debug.Log("rotate Left: " + angles.y);
         if (angles.y > 310-180 || angles.y < 50+180)
         {
             angles.y -= 15;

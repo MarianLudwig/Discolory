@@ -7,6 +7,7 @@ public class StoneMovement : MonoBehaviour {
     private bool moveable;
     private bool reset = false;
     private float finalSpeed;
+    private Vector3 dirNorm;
 
     [System.Serializable]
     public class Boundary
@@ -16,10 +17,11 @@ public class StoneMovement : MonoBehaviour {
 
     public float speed;
     public Boundary boundary;
-    public Vector3 movement = new Vector3(-1.0f, 0.0f, 0.0f);
+    public Vector3 goalPos = new Vector3(0.0f, -1.0f, 0.0f);
 
     // Use this for initialization
     void Start () {
+        dirNorm = (goalPos - transform.position).normalized;
         finalSpeed = speed;
 	}
 	
@@ -34,16 +36,35 @@ public class StoneMovement : MonoBehaviour {
                 speed = finalSpeed;
                 GetComponent<Rigidbody>().isKinematic = false;
             }
-            if (GetComponent<Rigidbody>().position.x >= boundary.xMin)
-                GetComponent<Rigidbody>().velocity = movement * speed;
-            else
-                speed = 0.0f;
 
+            Vector3 move = new Vector3(0,0,0);
+            //if (GetComponent<Rigidbody>().position.x >= boundary.xMin)
+            //{
+            if (Vector3.Distance(goalPos, transform.position) <= 1)
+            {
+                enabled = false;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().position = transform.position + dirNorm * speed * Time.deltaTime;
+            }
+            //GetComponent<Rigidbody>().position = Vector3.MoveTowards(transform.position, goalPos, speed);
+            //GetComponent<Rigidbody>().position += this.transform.position - goalPos;
+            //GetComponent<Rigidbody>().velocity = movement * speed;
+            //move = goalPosition - GetComponent<Rigidbody>().position;
+
+            //}
+            //GetComponent<Rigidbody>().velocity = movement * speed;
+            //else
+            //  speed = 0.0f;
+            /*
             GetComponent<Rigidbody>().position = new Vector3(
-                Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax),
                 0.0f,
+                Mathf.Clamp(transform.position.y, boundary.xMin, boundary.xMax),
                 Mathf.Clamp(transform.position.z, boundary.zMin, boundary.zMax)
-            );
+            );*/
+
+
         }
     }
 
