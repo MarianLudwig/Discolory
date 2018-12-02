@@ -12,12 +12,13 @@ public class StaffBehaviour : MonoBehaviour
 	private LineRenderer lightBeam;
 	// Layer 9-14; R - Y(G) - B - O - P - G, only RYB usable for lightbeam, purple objects can be hit by both
 	private int validLayermask;
+	private Color currentColor;
 
 	// How long/much can the lightBeam be used, decreases in Update while lightBeamActive
 	private float lightPower = 100f;
 
 	// Use this for initialization
-	void Start()
+	void Awake()
 	{
 		lightBeam = muzzle.GetComponent<LineRenderer>();
 		lightBeam.enabled = false;
@@ -44,6 +45,14 @@ public class StaffBehaviour : MonoBehaviour
 				{
 					lightBeam.SetPosition(1, hit.point);
 					// TODO Call function on hit object if it is lightbeam-interactable
+					if (hit.collider.tag == "SingleColorLightBlock")
+					{
+						hit.transform.GetComponent<SingleColorLightBlock>().ActivateLightblock(energyConsumption);
+					}
+					else if (hit.collider.tag == "MultiColorLightBlock")
+					{
+						hit.transform.GetComponent<MultiColorLightBlock>().ActivateLightblock(energyConsumption, currentColor);
+					}
 				}
 			}
 			else
@@ -77,12 +86,14 @@ public class StaffBehaviour : MonoBehaviour
 	public void ChangeGem(Color changeToColor)
 	{
 		lightBeam.startColor = changeToColor;
+		currentColor = changeToColor;
 
+		// valid layermask = Lightblocks allowed to hit
 		if (changeToColor == Color.red)
-			validLayermask = LayerMask.GetMask("Default", "Red");
+			validLayermask = LayerMask.GetMask("Default", "Red", "Orange", "Purple");
 		else if (changeToColor == Color.yellow)
-			validLayermask = LayerMask.GetMask("Default", "Yellow");
-		else									
-			validLayermask = LayerMask.GetMask("Default", "Blue");
+			validLayermask = LayerMask.GetMask("Default", "Yellow", "Orange", "Green");
+		else
+			validLayermask = LayerMask.GetMask("Default", "Blue", "Green", "Purple");
 	}
 }

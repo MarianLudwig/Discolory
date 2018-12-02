@@ -11,22 +11,17 @@ TagManager:
   - EnergySource
   - Deathzone
   - Button
+  - SingleColorLightBlock
+  - MultiColorLightBlock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
   - Water
-  - UI
-  - 
-  - 
+  - UI 
   - PostProcessing
   - CamPlayerOne
   - CamPlayerTwo
-  - 
-  - 
-  - 
-  - 
   - Red
   - Yellow
   - Blue
