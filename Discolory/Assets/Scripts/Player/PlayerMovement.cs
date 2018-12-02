@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonDown(conSettings.changeButton))
 		{
-			Debug.Log("Changing gem");
+
 			playerAnim.Cast(false);
 			staff.GetComponent<StaffBehaviour>().DeactivateLightBeam();
 			//changingGem = true;
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
 			primaryColorActive = !primaryColorActive;
 		}
-		Debug.Log(Input.GetAxis(conSettings.rightTrigger));
+
 		if (Input.GetAxisRaw(conSettings.rightTrigger) == 1)
 		{
 			//Debug.Log("Press right trigger");
